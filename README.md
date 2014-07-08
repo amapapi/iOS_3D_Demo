@@ -67,4 +67,4 @@ iOS_3D_Demo
 
 ![twoDemision](https://raw.githubusercontent.com/tabsong/iOS_3D_Demo/master/ResourcesBed/twoDimensionCode.png)
 
-* `手机上打开地址:<http://fir.im/zFe>`
+* `手机上打开地址:<http://fir.im/amap3d>`
