@@ -55,3 +55,16 @@ iOS_3D_Demo
 
 * `MAHeaderView`
 * `CustomCalloutView`
+
+#### 截图效果
+
+![map](https://raw.githubusercontent.com/tabsong/iOS_3D_Demo/master/ResourcesBed/mapScreen.png)
+![search](https://raw.githubusercontent.com/tabsong/iOS_3D_Demo/master/ResourcesBed/searchScreen.png)
+
+#### 在线安装Demo
+
+* `手机扫描如下二维码直接安装`
+
+![twoDemision](https://raw.githubusercontent.com/tabsong/iOS_3D_Demo/master/ResourcesBed/twoDimensionCode.png)
+
+* `手机上打开地址:<http://fir.im/zFe>`
