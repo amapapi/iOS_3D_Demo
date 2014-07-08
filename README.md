@@ -17,7 +17,7 @@ iOS_3D_Demo
   * `BaseMapViewController` 地图基类
     - `MapTypeViewController` 地图类型
     - `TrafficViewController` 实时交通
-    - `GestureAttributesViewController` ���手势屏蔽
+    - `GestureAttributesViewController` 手势屏蔽
     - `AddGestureViewController` 添加手势
     - `OverlayViewController` 基础overlay
     - `CustomOverlayViewController` 自定义overlay
