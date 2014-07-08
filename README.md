@@ -12,28 +12,46 @@ iOS_3D_Demo
 ### 架构
 
 #### Controllers
+- `<UIViewController>`
+  * `MainViewController`
+  * `BaseMapViewController`
+    - `MapTypeViewController`
+    - `TrafficViewController`
+    - `GestureAttributesViewController`
+    - `AddGestureViewController`
+    - `OverlayViewController`
+    - `CustomOverlayViewController`
+    - `GeodesicViewController`
+    - `GroundOverlayViewController`
+    - `TileOverlayViewController`
+    - `AnnotationViewController`
+    - `CustomAnnotationViewController`
+    - `AnimatedAnnotationViewController`
+    - `UserLocationViewController`
+    - `ScreenShotViewController`
+    - `OfflineViewController`
+    - `TouchPoiViewController`
+    - `CoreAnimationViewController`
+    - `CustomUserLocationViewController`
 
-* `MainViewController`
-* `BaseMapViewController`
-  - `MapTypeViewController`
-  - `TrafficViewController`
-  - `GestureAttributesViewController`
-  - `AddGestureViewController`
-  - `OverlayViewController`
-  - `CustomOverlayViewController`
-  - `GeodesicViewController`
-  - `GroundOverlayViewController`
-  - `TileOverlayViewController`
-  - `AnnotationViewController`
-  - `CustomAnnotationViewController`
-  - `AnimatedAnnotationViewController`
-  - `UserLocationViewController`
-  - `ScreenShotViewController`
-  - `OfflineViewController`
-  - `TouchPoiViewController`
-  - `CoreAnimationViewController`
-  - `CustomUserLocationViewController`
+#### Models
+
+* `Conform to <MAAnnotation>`
+  - `AnimatedAnnotation`
+  - `BusStopAnnotation`
+  - `GeocodeAnnotation`
+  - `POIAnnotation`
+  - `ReGeocodeAnnotation`
+  
+* `Conform to <MAOverlay>`
+  - `FaceOverlay`
+  - `LineDashPolyline`
 
 #### Views
 
-#### Models
+* `MAAnnotationView`
+  - `AnimatedAnnotationView`
+  - `CusAnnotationView`
+
+* `MAHeaderView`
+* `CustomCalloutView`
