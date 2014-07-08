@@ -14,31 +14,31 @@ iOS_3D_Demo
 #### Controllers
 - `<UIViewController>`
   * `MainViewController`
-  * `BaseMapViewController`
-    - `MapTypeViewController`
-    - `TrafficViewController`
-    - `GestureAttributesViewController`
-    - `AddGestureViewController`
-    - `OverlayViewController`
-    - `CustomOverlayViewController`
-    - `GeodesicViewController`
-    - `GroundOverlayViewController`
-    - `TileOverlayViewController`
-    - `AnnotationViewController`
-    - `CustomAnnotationViewController`
-    - `AnimatedAnnotationViewController`
-    - `UserLocationViewController`
-    - `ScreenShotViewController`
-    - `OfflineViewController`
-    - `TouchPoiViewController`
-    - `CoreAnimationViewController`
-    - `CustomUserLocationViewController`
+  * `BaseMapViewController` 地图基类
+    - `MapTypeViewController` 地图类型
+    - `TrafficViewController` 实时交通
+    - `GestureAttributesViewController` ���手势屏蔽
+    - `AddGestureViewController` 添加手势
+    - `OverlayViewController` 基础overlay
+    - `CustomOverlayViewController` 自定义overlay
+    - `GeodesicViewController` 大地曲线
+    - `GroundOverlayViewController` ground overlay
+    - `TileOverlayViewController` tile overlay
+    - `AnnotationViewController` 基础annotationView
+    - `CustomAnnotationViewController` 自定义annotationView
+    - `AnimatedAnnotationViewController` 动画annotationView
+    - `UserLocationViewController` 定位
+    - `ScreenShotViewController` 截屏
+    - `OfflineViewController` 离线地图
+    - `TouchPoiViewController` 地图内部POI
+    - `CoreAnimationViewController` Core Animation
+    - `CustomUserLocationViewController` 自定义定位annotationView
 
 #### Models
 
 * `Conform to <MAAnnotation>`
   - `AnimatedAnnotation`
-  - `BusStopAnnotation`
+  - `BusStopAnnotation` 
   - `GeocodeAnnotation`
   - `POIAnnotation`
   - `ReGeocodeAnnotation`
