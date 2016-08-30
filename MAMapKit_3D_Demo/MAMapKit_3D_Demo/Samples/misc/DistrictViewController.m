@@ -11,10 +11,11 @@
 
 #define kDefaultDistrictName        @"北京市市辖区" //市辖区
 
-@interface DistrictViewController ()<MAMapViewDelegate, AMapSearchDelegate>
+@interface DistrictViewController ()<MAMapViewDelegate, AMapSearchDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) MAMapView *mapView;
 @property (nonatomic, strong) AMapSearchAPI *search;
+@property (nonatomic, strong) UISearchBar *searchBar;
 
 @end
 
@@ -33,14 +34,56 @@
     self.mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
-    
     [self.view addSubview:self.mapView];
     
     self.search = [[AMapSearchAPI alloc] init];
     self.search.delegate = self;
     
-    [self searchDistrictWithName:kDefaultDistrictName];
+    [self initSearchBar];
 }
+
+#pragma mark -
+- (void)initSearchBar
+{
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectZero];
+    self.searchBar.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.searchBar.barStyle     = UIBarStyleBlack;
+    self.searchBar.delegate     = self;
+    self.searchBar.placeholder  = @"输入关键字";
+    self.searchBar.text = kDefaultDistrictName;
+    self.searchBar.keyboardType = UIKeyboardTypeDefault;
+    
+    self.navigationItem.titleView = self.searchBar;
+    
+    [self.searchBar sizeToFit];
+}
+
+#pragma mark - UISearchBarDelegate
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [self.searchBar setShowsCancelButton:YES];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    [self.searchBar setShowsCancelButton:NO];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self.searchBar resignFirstResponder];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self.searchBar resignFirstResponder];
+    
+    if(self.searchBar.text.length == 0) {
+        return;
+    }
+    
+    [self searchDistrictWithName:self.searchBar.text];
+}
+
 
 #pragma mark - action handle
 

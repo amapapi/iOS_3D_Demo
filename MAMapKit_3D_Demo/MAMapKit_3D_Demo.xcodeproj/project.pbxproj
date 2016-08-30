@@ -565,6 +565,7 @@
 		B675DEED1D6EA62F00362D62 /* MAWeatherForecastView.m in Sources */ = {isa = PBXBuildFile; fileRef = B675DEE81D6EA62F00362D62 /* MAWeatherForecastView.m */; };
 		B675DEEE1D6EA62F00362D62 /* MAWeatherLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = B675DEEA1D6EA62F00362D62 /* MAWeatherLiveView.m */; };
 		B675DEEF1D6EA62F00362D62 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B675DEEC1D6EA62F00362D62 /* WeatherViewController.m */; };
+		B675DEF81D75801600362D62 /* CooridinateSystemConvertController.m in Sources */ = {isa = PBXBuildFile; fileRef = B675DEF71D75801600362D62 /* CooridinateSystemConvertController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1258,6 +1259,8 @@
 		B675DEEA1D6EA62F00362D62 /* MAWeatherLiveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAWeatherLiveView.m; sourceTree = "<group>"; };
 		B675DEEB1D6EA62F00362D62 /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
 		B675DEEC1D6EA62F00362D62 /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
+		B675DEF61D75801600362D62 /* CooridinateSystemConvertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CooridinateSystemConvertController.h; sourceTree = "<group>"; };
+		B675DEF71D75801600362D62 /* CooridinateSystemConvertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CooridinateSystemConvertController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1680,6 +1683,8 @@
 				B61090691D641B1200C359A7 /* DistanceCalculateViewController2.m */,
 				B610906A1D641B1200C359A7 /* InsideTestViewController.h */,
 				B610906B1D641B1200C359A7 /* InsideTestViewController.m */,
+				B675DEF61D75801600362D62 /* CooridinateSystemConvertController.h */,
+				B675DEF71D75801600362D62 /* CooridinateSystemConvertController.m */,
 			);
 			path = mapTools;
 			sourceTree = "<group>";
@@ -2853,6 +2858,7 @@
 				B610912D1D641B1200C359A7 /* PoiSearchNearByController.m in Sources */,
 				B610912C1D641B1200C359A7 /* POIAnnotation.m in Sources */,
 				B61090E31D641B1200C359A7 /* AnnotationViewController.m in Sources */,
+				B675DEF81D75801600362D62 /* CooridinateSystemConvertController.m in Sources */,
 				B675DEEF1D6EA62F00362D62 /* WeatherViewController.m in Sources */,
 				B61090EA1D641B1200C359A7 /* CustomCalloutView.m in Sources */,
 				B61091631D644FBF00C359A7 /* OfflineDetailViewController.m in Sources */,

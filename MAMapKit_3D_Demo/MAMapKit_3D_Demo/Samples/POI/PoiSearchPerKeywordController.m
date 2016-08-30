@@ -1,6 +1,6 @@
 //
 //  PoiSearchPerKeywordController.m
-//  MAMapKit_3D_Demo
+//  MAMapKit_2D_Demo
 //
 //  Created by shaobin on 16/8/11.
 //  Copyright © 2016年 Autonavi. All rights reserved.
@@ -11,10 +11,11 @@
 #import "PoiDetailViewController.h"
 #import "CommonUtility.h"
 
-@interface PoiSearchPerKeywordController ()<MAMapViewDelegate, AMapSearchDelegate>
+@interface PoiSearchPerKeywordController ()<MAMapViewDelegate, AMapSearchDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) AMapSearchAPI *search;
 @property (nonatomic, strong) MAMapView *mapView;
+@property (nonatomic, strong) UISearchBar *searchBar;
 
 @end
 
@@ -33,13 +34,53 @@
     self.mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
-    
     [self.view addSubview:self.mapView];
     
     self.search = [[AMapSearchAPI alloc] init];
     self.search.delegate = self;
     
-    [self searchPoiByKeyword];
+    [self initSearchBar];
+}
+
+#pragma mark -
+- (void)initSearchBar
+{
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectZero];
+    self.searchBar.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.searchBar.barStyle     = UIBarStyleBlack;
+    self.searchBar.delegate     = self;
+    self.searchBar.placeholder  = @"输入关键字";
+    self.searchBar.keyboardType = UIKeyboardTypeDefault;
+    
+    self.navigationItem.titleView = self.searchBar;
+    
+    [self.searchBar sizeToFit];
+}
+
+#pragma mark - UISearchBarDelegate
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [self.searchBar setShowsCancelButton:YES];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    [self.searchBar setShowsCancelButton:NO];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self.searchBar resignFirstResponder];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self.searchBar resignFirstResponder];
+    
+    if(self.searchBar.text.length == 0) {
+        return;
+    }
+    
+    [self searchPoiByKeyword:self.searchBar.text];
 }
 
 #pragma mark - MAMapViewDelegate
@@ -119,17 +160,17 @@
 
 #pragma mark - Utility
 /* 根据关键字来搜索POI. */
-- (void)searchPoiByKeyword
+- (void)searchPoiByKeyword:(NSString *)keyword
 {
     AMapPOIKeywordsSearchRequest *request = [[AMapPOIKeywordsSearchRequest alloc] init];
-    
-    request.keywords            = @"北京大学";
-    request.city                = @"北京";
-    request.types               = @"高等院校";
-    request.requireExtension    = YES;
-    
-    /*  搜索SDK 3.2.0 中新增加的功能，只搜索本城市的POI。*/
-    request.cityLimit           = YES;
+    request.keywords = keyword;
+    //    request.keywords            = @"北京大学";
+    //    request.city                = @"北京";
+    //    request.types               = @"高等院校";
+    //    request.requireExtension    = YES;
+    //
+    //    /*  搜索SDK 3.2.0 中新增加的功能，只搜索本城市的POI。*/
+    //    request.cityLimit           = YES;
     request.requireSubPOIs      = YES;
     
     [self.search AMapPOIKeywordsSearch:request];

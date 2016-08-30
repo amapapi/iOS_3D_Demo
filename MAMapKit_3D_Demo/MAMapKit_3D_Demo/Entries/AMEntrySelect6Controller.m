@@ -17,7 +17,7 @@
                          @"点与线的距离计算",
                          @"判断点是否在多边形内"];
     
-    self.entryClasses = @[@"",
+    self.entryClasses = @[@"CooridinateSystemConvertController",
                           @"CoordinateConvertViewController",
                           @"DistanceCalculateViewController",
                           @"DistanceCalculateViewController2",

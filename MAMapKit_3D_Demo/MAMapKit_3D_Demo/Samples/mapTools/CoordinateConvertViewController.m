@@ -30,6 +30,14 @@
     self.mapView.delegate = self;
     
     [self.view addSubview:self.mapView];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 40)];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    label.textColor = [UIColor whiteColor];
+    label.text = @"点击地图显示屏幕坐标";
+    label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+    [self.view addSubview:label];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
