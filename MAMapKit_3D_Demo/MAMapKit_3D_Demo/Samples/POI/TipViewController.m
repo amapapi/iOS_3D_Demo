@@ -62,7 +62,6 @@
     self.mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
-    
     [self.view addSubview:self.mapView];
     
     self.search = [[AMapSearchAPI alloc] init];
@@ -92,7 +91,7 @@
     AMapInputTipsSearchRequest *tips = [[AMapInputTipsSearchRequest alloc] init];
     tips.keywords = key;
     tips.city     = @"北京";
-//    tips.cityLimit = YES; 是否限制城市
+    //    tips.cityLimit = YES; 是否限制城市
     
     [self.search AMapInputTipsSearch:tips];
 }
@@ -108,7 +107,7 @@
 {
     /* 清除annotations & overlays */
     [self clear];
-
+    
     if (tip.uid != nil && tip.location != nil) /* 可以直接在地图打点  */
     {
         AMapTipAnnotation *annotation = [[AMapTipAnnotation alloc] initWithMapTip:tip];
@@ -169,7 +168,7 @@
     {
         TipDetailViewController *tipDetailViewController = [[TipDetailViewController alloc] init];
         tipDetailViewController.tip                      = tip;
-
+        
         [self.navigationController pushViewController:tipDetailViewController animated:YES];
     }
 }
@@ -308,6 +307,8 @@
 /* POI 搜索回调. */
 - (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response
 {
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    
     if (response.pois.count == 0)
     {
         return;
@@ -389,7 +390,7 @@
     {
         cell.imageView.image = [UIImage imageNamed:@"search"];
     }
-
+    
     cell.textLabel.text = tip.name;
     cell.detailTextLabel.text = tip.address;
     
@@ -416,7 +417,7 @@
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 44)];
     self.searchBar.barStyle     = UIBarStyleBlack;
     self.searchBar.translucent  = YES;
-	self.searchBar.delegate     = self;
+    self.searchBar.delegate     = self;
     
     self.searchBar.placeholder  = TipPlaceHolder;
     self.searchBar.keyboardType = UIKeyboardTypeDefault;

@@ -198,6 +198,9 @@
 - (void)onDistrictSearchDone:(AMapDistrictSearchRequest *)request response:(AMapDistrictSearchResponse *)response
 {
     NSLog(@"response: %@", response);
+    [self.mapView removeOverlays:self.mapView.overlays];
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    
     [self handleDistrictResponse:response];
 }
 

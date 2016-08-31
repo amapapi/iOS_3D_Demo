@@ -130,6 +130,8 @@
 /* POI 搜索回调. */
 - (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response
 {
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    
     if (response.pois.count == 0)
     {
         return;
